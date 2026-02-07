@@ -1,41 +1,148 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Neva Bot</title>
-  <style>
-    body {
-      background:#0b0f1a;
-      color:white;
-      font-family: Arial;
-      text-align:center;
-      padding-top:80px;
-    }
-    .box {
-      background:#11162a;
-      padding:30px;
-      border-radius:12px;
-      width:320px;
-      margin:auto;
-    }
-    button {
-      background:#5865F2;
-      border:none;
-      padding:12px 20px;
-      color:white;
-      border-radius:8px;
-      cursor:pointer;
-      margin-top:15px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neva Code</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: radial-gradient(circle at top, #1b1b3a, #0a0a18);
+  color: #fff;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #9b7cff;
+}
+
+/* Menu */
+.menu-btn {
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 220px;
+  height: 100%;
+  background: #0f0f24;
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.menu a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  margin: 15px 0;
+  font-size: 18px;
+}
+
+.menu a:hover {
+  color: #9b7cff;
+}
+
+/* Content */
+.container {
+  text-align: center;
+  margin-top: 80px;
+  padding: 0 20px;
+}
+
+h1 {
+  font-size: 42px;
+  color: #9b7cff;
+}
+
+.subtitle {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-top: 10px;
+}
+
+.box {
+  margin: 40px auto;
+  padding: 20px;
+  border: 2px solid #9b7cff;
+  border-radius: 14px;
+  max-width: 420px;
+  font-size: 18px;
+}
+
+/* Pages */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+</style>
 </head>
+
 <body>
 
-<div class="box">
-  <h1>Neva Bot</h1>
-  <p>Güçlü • Hızlı • Modern</p>
-  <button>Discord'a Ekle</button>
+<!-- Navbar -->
+<div class="navbar">
+  <div class="logo">Neva Code</div>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
 </div>
+
+<!-- Menu -->
+<div class="menu" id="menu">
+  <a href="#" onclick="showPage('home')">Ana Sayfa</a>
+  <a href="#" onclick="showPage('about')">Hakkımda</a>
+</div>
+
+<!-- Content -->
+<div class="container">
+
+  <!-- Ana Sayfa -->
+  <div id="home" class="page active">
+    <h1>Neva Code</h1>
+    <div class="subtitle">Neva Code'ye Hoşgeldin</div>
+
+    <div class="box">
+      Neva Code En Yakın Zamanda Açılacak.
+    </div>
+  </div>
+
+  <!-- Hakkımda -->
+  <div id="about" class="page">
+    <h1>Hakkımda</h1>
+    <div class="box">
+      Swqze Neva Codeyi Yedi
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.style.right = menu.style.right === "0px" ? "-100%" : "0px";
+}
+
+function showPage(page) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  document.getElementById(page).classList.add("active");
+  document.getElementById("menu").style.right = "-100%";
+}
+</script>
 
 </body>
 </html>
