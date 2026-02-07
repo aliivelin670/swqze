@@ -5,142 +5,261 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neva Code</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: radial-gradient(circle at top, #1b1b3a, #0a0a18);
-  color: #fff;
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{
+  background:linear-gradient(135deg,#0b0020,#0a0f2c);
+  color:#fff;
+  min-height:100vh;
 }
 
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 20px;
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 24px;
+}
+.brand{
+  font-size:24px;
+  font-weight:800;
+}
+.brand span:first-child{color:#fff}
+.brand span:last-child{color:#9b7cff}
+
+.top-right{
+  display:flex;
+  gap:15px;
+  align-items:center;
 }
 
-.logo {
-  font-size: 20px;
-  font-weight: bold;
-  color: #9b7cff;
+.lang{
+  cursor:pointer;
+  font-size:14px;
+  opacity:.8;
+}
+.lang:hover{opacity:1}
+
+.hamburger{
+  font-size:28px;
+  cursor:pointer;
 }
 
-/* Menu */
-.menu-btn {
-  font-size: 26px;
-  cursor: pointer;
+/* MENU */
+nav{
+  display:none;
+  position:absolute;
+  right:20px;
+  top:70px;
+  background:#0e1235;
+  border-radius:16px;
+  padding:15px;
+  box-shadow:0 15px 40px rgba(0,0,0,.5);
+}
+nav a{
+  display:block;
+  padding:10px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:500;
+}
+nav a:hover{color:#9b7cff}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:100px 20px 80px;
+}
+.hero h1{
+  font-size:56px;
+}
+.hero h1 span:first-child{color:#fff}
+.hero h1 span:last-child{color:#9b7cff}
+.hero .year{
+  margin-top:6px;
+  color:#9b7cff;
+  font-weight:600;
+}
+.hero p{
+  max-width:750px;
+  margin:40px auto 0;
+  font-size:18px;
+  opacity:.9;
+}
+.hero button{
+  margin-top:40px;
+  padding:14px 30px;
+  border-radius:14px;
+  border:none;
+  background:#9b7cff;
+  color:#000;
+  font-weight:700;
+  cursor:not-allowed;
 }
 
-.menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 220px;
-  height: 100%;
-  background: #0f0f24;
-  padding: 20px;
-  transition: 0.3s;
+/* SECTION */
+.section{
+  max-width:1100px;
+  margin:auto;
+  padding:80px 20px;
+}
+.section h2{
+  color:#9b7cff;
+  margin-bottom:25px;
 }
 
-.menu a {
-  display: block;
-  color: #fff;
-  text-decoration: none;
-  margin: 15px 0;
-  font-size: 18px;
+/* CODE */
+.code-box{
+  background:#0e1235;
+  border-radius:18px;
+  padding:25px;
+  margin-bottom:20px;
+}
+.code-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.add-btn{
+  background:#9b7cff;
+  color:#000;
+  padding:8px 14px;
+  border-radius:10px;
+  font-weight:700;
+  cursor:not-allowed;
 }
 
-.menu a:hover {
-  color: #9b7cff;
+/* PROJECTS */
+.project-bubble{
+  background:#0e1235;
+  border-radius:22px;
+  padding:40px;
+  text-align:center;
+}
+.project-logo{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  background:#9b7cff;
+  color:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  font-size:36px;
+  margin:0 auto 20px;
 }
 
-/* Content */
-.container {
-  text-align: center;
-  margin-top: 80px;
-  padding: 0 20px;
+/* DISCORD */
+.discord-btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:14px 24px;
+  background:#5865F2;
+  color:#fff;
+  border-radius:14px;
+  font-weight:700;
+  text-decoration:none;
 }
 
-h1 {
-  font-size: 42px;
-  color: #9b7cff;
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  opacity:.6;
 }
 
-.subtitle {
-  font-size: 18px;
-  opacity: 0.9;
-  margin-top: 10px;
-}
-
-.box {
-  margin: 40px auto;
-  padding: 20px;
-  border: 2px solid #9b7cff;
-  border-radius: 14px;
-  max-width: 420px;
-  font-size: 18px;
-}
-
-/* Pages */
-.page {
-  display: none;
-}
-
-.page.active {
-  display: block;
+/* RESPONSIVE */
+@media(min-width:768px){
+  nav{
+    display:flex!important;
+    position:static;
+    background:none;
+    box-shadow:none;
+    gap:20px;
+  }
+  nav a{padding:0}
+  .hamburger{display:none}
 }
 </style>
 </head>
 
 <body>
 
-<!-- Navbar -->
-<div class="navbar">
-  <div class="logo">Neva Code</div>
-  <div class="menu-btn" onclick="toggleMenu()">☰</div>
-</div>
-
-<!-- Menu -->
-<div class="menu" id="menu">
-  <a href="#" onclick="showPage('home')">Ana Sayfa</a>
-  <a href="#" onclick="showPage('about')">Hakkımda</a>
-</div>
-
-<!-- Content -->
-<div class="container">
-
-  <!-- Ana Sayfa -->
-  <div id="home" class="page active">
-    <h1>Neva Code</h1>
-    <div class="subtitle">Neva Code'ye Hoşgeldin</div>
-
-    <div class="box">
-      Neva Code En Yakın Zamanda Açılacak.
-    </div>
+<header>
+  <div class="brand">
+    <span>Neva</span><span> Code</span>
   </div>
 
-  <!-- Hakkımda -->
-  <div id="about" class="page">
-    <h1>Hakkımda</h1>
-    <div class="box">
-      Swqze Neva Codeyi Yedi
-    </div>
+  <div class="top-right">
+    <div class="lang">TR | EN</div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
   </div>
+</header>
 
-</div>
+<nav id="menu">
+  <a href="#home">Ana Sayfa</a>
+  <a href="#code">Code</a>
+  <a href="#projects">Projeler</a>
+  <a href="https://discord.gg/zzNzXbxMU" target="_blank">Discord</a>
+</nav>
+
+<section class="hero" id="home">
+  <h1><span>Neva</span> <span>Code</span></h1>
+  <div class="year">2026</div>
+
+  <p>
+    Neva Code olarak dijital dünyanın sınırlarını zorlayan kodlar,
+    altyapılar ve daha bir sürü yenilikçi deneyimler üretiyoruz.
+  </p>
+
+  <button>Projelerimizi Keşfet</button>
+</section>
+
+<section class="section" id="code">
+  <h2>CODE</h2>
+
+  <div class="code-box">
+    <div class="code-top">
+      <strong>Paylaşılan Kodlar</strong>
+      <div class="add-btn">+ Kod Ekle</div>
+    </div>
+    <p style="opacity:.7;margin-top:10px">
+      Yetkili sistem aktif olduğunda buradan kod eklenebilecek.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <h2>Projeler</h2>
+
+  <div class="project-bubble">
+    <div class="project-logo">N</div>
+    <h3>Neva Code</h3>
+    <p style="opacity:.8;margin-top:10px">
+      Neva Code en yakın zamanda sizlere hizmet sunmaya başlayacaktır.
+      Lütfen beklemede kalın.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Discord Sunucumuza Katıl</h2>
+  <a class="discord-btn" href="https://discord.gg/zzNzXbxMU" target="_blank">
+    Discord Sunucuma Katıl!
+  </a>
+</section>
+
+<footer>
+  © 2026 Neva Code
+</footer>
 
 <script>
-function toggleMenu() {
-  const menu = document.getElementById("menu");
-  menu.style.right = menu.style.right === "0px" ? "-100%" : "0px";
-}
-
-function showPage(page) {
-  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-  document.getElementById(page).classList.add("active");
-  document.getElementById("menu").style.right = "-100%";
+function toggleMenu(){
+  const m=document.getElementById("menu");
+  m.style.display = m.style.display==="block" ? "none" : "block";
 }
 </script>
 
